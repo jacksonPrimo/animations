@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #0e1538;
+}
+
+a {
+  position: relative;
+  padding: 40px 60px;
+  margin: 40px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.5);
+  transition: 1s;
+  text-decoration: none;
+}
+
+a:hover {
+  box-shadow: 
+  0 0 10px var(--clr),
+  0 0 30px var(--clr),
+  0 0 60px var(--clr),
+  0 0 100px var(--clr);
+}
+a::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 400%;
+  background: var(--clr);
+  transition: 1s;
+  animation: animate 2s linear infinite;
+  animation-delay: calc(0.33s * var(--delay));
+}
+a:hover::before {
+  width: 120%;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+a::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  transition: 0.5s;
+  background: #0e1538;
+}
+a:hover::after {
+  background: var(--clr);
+}
+
+a span {
+  position: relative;
+  z-index: 1;
+  font-size: 2em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5;
+  opacity: 0.5;
+}
+a span:hover {
+  opacity: 1;
+}
